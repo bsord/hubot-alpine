@@ -11,5 +11,7 @@
   "hubot-schedule",
   "hubot-sonny",
   "hubot-uptime",
+  "cron",
+  "hubot-cron",
   "hubot-cryptoalert"
 ]
