@@ -6,10 +6,6 @@ MAINTAINER Brandon Sorgdrager <Brandon.Sorgdrager@gmail.com>
 RUN apk update && apk upgrade \
   && apk add redis \
   && apk add nodejs \
-  && apk add python \
-  && apk add curl \
-  && curl -sS https://bootstrap.pypa.io/get-pip.py | python \
-  && pip install awscli \
   && npm install -g npm \
   && npm install -g coffee-script \
   && npm install -g yo generator-hubot \
@@ -17,7 +13,6 @@ RUN apk update && apk upgrade \
   && npm install hubot-uptime \
   && npm install hubot-cron \
   && npm install hubot-cryptoalert \
-  && apk --purge -v del py-pip \
   && rm -rf /var/cache/apk/*
 
 # Create hubot user
