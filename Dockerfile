@@ -1,6 +1,6 @@
 FROM alpine
 
-MAINTAINER Ben Visser <benny@noqcks.io>
+MAINTAINER Brandon Sorgdrager <Brandon.Sorgdrager@gmail.com>
 
 # Install dependencies
 RUN apk update && apk upgrade \
@@ -22,10 +22,10 @@ USER  hubot
 WORKDIR /hubot
 
 # Install hubot
-RUN yo hubot --owner="Ben Visser <benny@noqcks.io>" --name="dockbot" --description="Roll, roll, rollercoaster" --defaults
+RUN yo hubot --owner="Brandon Sorgdrager" --name="Sonny" --description="A ghost in the machine" --defaults
 COPY package.json package.json
 RUN npm install
-ADD hubot/hubot-scripts.json /hubot/
+# ADD hubot/hubot-scripts.json /hubot/ (apparently deprecated)
 ADD hubot/external-scripts.json /hubot/
 
 EXPOSE 80
