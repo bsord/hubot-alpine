@@ -13,6 +13,7 @@ RUN apk update && apk upgrade \
   && npm install -g npm \
   && npm install -g coffee-script \
   && npm install -g yo generator-hubot \
+  && npm install hubot-sonny \
   && apk --purge -v del py-pip \
   && rm -rf /var/cache/apk/*
 
