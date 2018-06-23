@@ -15,7 +15,6 @@ RUN apk update && apk upgrade \
   && npm install -g yo generator-hubot \
   && npm install hubot-sonny \
   && npm install hubot-uptime \
-  && npm install cron \
   && npm install hubot-cron \
   && npm install hubot-cryptoalert \
   && apk --purge -v del py-pip \
