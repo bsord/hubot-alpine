@@ -1,5 +1,5 @@
 {
-  "name": "dockbot",
+  "name": "Hubot-Alpine",
   "version": "1.0.0",
   "description": "Hubot in Docker",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:noqcks/dockbot.git"
+    "url": "git@github.com:bsord/hubot-alpine.git"
   },
-  "author": "Ben Visser",
+  "author": "Brandon Sorgdrager",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/noqcks/dockbot/issues"
+    "url": "https://github.com/bsord/hubot-alpine/issues"
   },
-  "homepage": "https://github.com/noqcks/dockbot#readme",
+  "homepage": "https://github.com/bsord/hubot-alpine#readme",
   "dependencies": {
     "hubot": "^2.17.0",
     "hubot-auth": "^1.2.0",
