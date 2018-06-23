@@ -7,7 +7,6 @@ RUN apk update && apk upgrade \
   && apk add redis \
   && apk add nodejs \
   && npm install -g npm \
-  && npm install -g coffee-script \
   && npm install -g yo generator-hubot \
   && npm install hubot-sonny \
   && npm install hubot-uptime \
@@ -24,7 +23,6 @@ WORKDIR /hubot
 RUN yo hubot --owner="Brandon Sorgdrager" --name="Sonny" --description="A ghost in the machine" --defaults
 COPY package.json package.json
 RUN npm install
-# ADD hubot/hubot-scripts.json /hubot/ (apparently deprecated)
 ADD hubot/external-scripts.json /hubot/
 
 EXPOSE 80
