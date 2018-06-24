@@ -16,7 +16,7 @@ Pre-requisites:
 To build a docker image
 
 ```
-docker build -t alpine-hubot .
+docker build -t hubot-alpine .
 ```
 
 To run the docker image
