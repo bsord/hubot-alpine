@@ -22,6 +22,7 @@ WORKDIR /hubot
 # Install hubot
 RUN yo hubot --owner="Brandon Sorgdrager" --name="Sonny" --description="A ghost in the machine" --defaults
 COPY package.json package.json
+COPY scripts scripts
 RUN npm install
 ADD hubot/external-scripts.json /hubot/
 

@@ -6,6 +6,5 @@
   "hubot-sonny",
   "hubot-uptime",
   "hubot-cron",
-  "hubot-cryptoalert",
-  "hubot-github-repo-event-notifier"
+  "hubot-cryptoalert"
 ]
