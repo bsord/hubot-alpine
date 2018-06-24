@@ -41,16 +41,7 @@ module.exports = (robot) ->
 
     pusher = data.pusher
 
-    if !data.deleted
-      if commits.length == 1
-        commit_link = "<#{head_commit.url}|#{head_commit.message}>"
-        robot.messageRoom room, "[#{repo_link}] New commit #{commit_link} by #{pusher.name}"
-      else if commits.length > 1
-        message = "[#{repo_link}] #{pusher.name} pushed #{commits.length} commits:"
-        for commit in commits
-          commit_link = "<#{commit.url}|#{commit.message}>"
-          message += "\n#{commit_link}"
-        robot.messageRoom room, message
+
 
 
     console.log(data);
