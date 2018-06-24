@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/bsord/hubot-alpine#readme",
   "dependencies": {
-    "hubot": "^3.17.0",
+    "hubot": "latest",
     "hubot-diagnostics": "0.0.1",
     "hubot-help": "^0.1.2",
     "hubot-redis-brain": "0.0.3",
