@@ -26,7 +26,7 @@ module.exports = (robot) ->
     room = query.room || process.env["HUBOT_GITHUB_EVENT_NOTIFIER_ROOM"]
     eventType = req.headers["x-github-event"]
 
-    robot.messageRoom room, JSON.stringify(data);
-    robot.messageRoom room, JSON.stringify(data);
+    #robot.messageRoom room, JSON.stringify(data);
+    robot.messageRoom room, data;
     console.log(data);
     res.end ""
