@@ -35,22 +35,22 @@ module.exports = (robot) ->
 
     robot.messageRoom room, (eventType).toString;
     data = body.payload.ref
-    commits = data.commits
-    head_commit = data.head_commit
-    repo = data.repository
+    #commits = data.commits
+    #head_commit = data.head_commit
+    #repo = data.repository
 
-    pusher = data.pusher
+    #pusher = data.pusher
 
-    if 1 == 2
-      if commits.length == 1
-        commit_link = "<#{head_commit.url}|#{head_commit.message}>"
-        robot.messageRoom room, "[#{repo_link}] New commit #{commit_link} by #{pusher.name}"
-      else if commits.length > 1
-        message = "[#{repo_link}] #{pusher.name} pushed #{commits.length} commits:"
-        for commit in commits
-          commit_link = "<#{commit.url}|#{commit.message}>"
-          message += "\n#{commit_link}"
-        robot.messageRoom room, message
+    #if 1 == 2
+      #if commits.length == 1
+        #commit_link = "<#{head_commit.url}|#{head_commit.message}>"
+        #robot.messageRoom room, "[#{repo_link}] New commit #{commit_link} by #{pusher.name}"
+      #else if commits.length > 1
+        #message = "[#{repo_link}] #{pusher.name} pushed #{commits.length} commits:"
+        #for commit in commits
+          #commit_link = "<#{commit.url}|#{commit.message}>"
+          #message += "\n#{commit_link}"
+        #robot.messageRoom room, message
 
 
     console.log(data);
