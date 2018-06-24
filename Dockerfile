@@ -26,7 +26,7 @@ COPY scripts scripts
 RUN npm install
 ADD hubot/external-scripts.json /hubot/
 
-EXPOSE 80
+EXPOSE 8080
 
 # And go
 CMD ["/bin/sh", "-c", "bin/hubot --adapter slack"]
