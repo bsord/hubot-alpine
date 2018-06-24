@@ -19,6 +19,13 @@
 url = require('url')
 querystring = require('querystring')
 
+formatUrl = (adapter, url, text) ->
+  switch adapter
+    when "mattermost" || "slack"
+      "<#{url}|#{text}>"
+    else
+      "#{text} (#{url})"
+
 module.exports = (robot) ->
   robot.router.post "/hubot/gh-repo-events", (req, res) ->
     query = querystring.parse(url.parse(req.url).query)
@@ -36,7 +43,7 @@ module.exports = (robot) ->
 
     if !data.deleted
       if commits.length == 1
-        commit_link = formatUrl adapter, head_commit.url, "\"#{head_commit.message}\""
+        commit_link = "<#{head_commit.url}|#{head_commit.message}>"
         robot.messageRoom room, "[#{repo_link}] New commit #{commit_link} by #{pusher.name}"
       else if commits.length > 1
         message = "[#{repo_link}] #{pusher.name} pushed #{commits.length} commits:"
