@@ -53,5 +53,5 @@ module.exports = (robot) ->
         robot.messageRoom room, message
 
 
-    console.log(data);
+    console.log(data.commits);
     res.end ""
