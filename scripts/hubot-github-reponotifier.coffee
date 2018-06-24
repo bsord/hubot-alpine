@@ -27,5 +27,6 @@ module.exports = (robot) ->
     eventType = req.headers["x-github-event"]
 
     robot.messageRoom room, JSON.stringify(data);
-
+    robot.messageRoom room, JSON.stringify(data);
+    console.log(data);
     res.end ""
