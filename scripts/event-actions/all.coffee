@@ -212,13 +212,47 @@ module.exports =
     if !data.deleted
       if commits.length == 1
         commit_link = formatUrl adapter, head_commit.url, "\"#{head_commit.message}\""
-        callback "[#{repo_link}] New commit #{commit_link} by #{pusher.name}"
-      else if commits.length > 1
-        message = "[#{repo_link}] #{pusher.name} pushed #{commits.length} commits:"
-        for commit in commits
-          commit_link = formatUrl adapter, commit.url, "\"#{commit.message}\""
-          message += "\n#{commit_link}"
-        callback message
+        color = #36a64f
+        msgData = {
+          channel: '#bottest',
+          text: "Git commit on #{repo.full_name} by #{pusher.name}",
+          "attachments": [
+            {
+              "fallback": "Git commit on #{repo.full_name} by #{pusher.name}" ,
+              "color": color,
+              "title": commit,
+              "title_link": head_commit.url,
+              "fields": [
+                {
+                  "title": "Pusher",
+                  "value": pusher.name,
+                  "short": true
+                }, {
+                  "title": "Language",
+                  "value": repo.language,
+                  "short": true
+                }, {
+                  "title": "Commit Message",
+                  "value": head_commit.message,
+                  "short": false
+                }
+              ],
+              "thumb_url": repo.owner.avatar_url,
+              "footer": "Github",
+              "footer_icon": "https://github.com/fluidicon.png"
+            }
+          ]
+        }
+
+        callback msgData
+        #callback "[#{repo_link}] New commit #{commit_link} by #{pusher.name}"
+
+      #else if commits.length > 1
+      #  message = "[#{repo_link}] #{pusher.name} pushed #{commits.length} commits:"
+      #  for commit in commits
+      #    commit_link = formatUrl adapter, commit.url, "\"#{commit.message}\""
+      #    message += "\n#{commit_link}"
+      #  callback message
 
   # Org level event
   repository: (adapter, data, callback) ->
