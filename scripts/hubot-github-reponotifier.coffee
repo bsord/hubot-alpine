@@ -34,7 +34,7 @@ module.exports = (robot) ->
     eventType = req.headers["x-github-event"]
     console.log(eventType);
     robot.messageRoom room, (eventType).toString;
-    data = body.payload.ref
+    data = body.payload
     #commits = data.commits
     #head_commit = data.head_commit
     #repo = data.repository
