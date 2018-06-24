@@ -42,7 +42,5 @@ module.exports = (robot) ->
     pusher = data.pusher
 
 
-
-
-    console.log(data);
+    console.log(data.payload);
     res.end ""
