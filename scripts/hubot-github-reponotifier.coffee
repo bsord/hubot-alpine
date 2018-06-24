@@ -22,11 +22,29 @@ querystring = require('querystring')
 module.exports = (robot) ->
   robot.router.post "/hubot/gh-repo-events", (req, res) ->
     query = querystring.parse(url.parse(req.url).query)
-    data = req.body
+    data = req.body.payload
     room = query.room || process.env["HUBOT_GITHUB_EVENT_NOTIFIER_ROOM"]
     eventType = req.headers["x-github-event"]
 
-    #robot.messageRoom room, JSON.stringify(data);
-    robot.messageRoom room, data;
+    robot.messageRoom room, (eventType).toString;
+
+    commits = data.commits
+    head_commit = data.head_commit
+    repo = data.repository
+    repo_link = formatUrl adapter, repo.html_url, repo.name
+    pusher = data.pusher
+
+    if !data.deleted
+      if commits.length == 1
+        commit_link = formatUrl adapter, head_commit.url, "\"#{head_commit.message}\""
+        robot.messageRoom room, "[#{repo_link}] New commit #{commit_link} by #{pusher.name}"
+      else if commits.length > 1
+        message = "[#{repo_link}] #{pusher.name} pushed #{commits.length} commits:"
+        for commit in commits
+          commit_link = formatUrl adapter, commit.url, "\"#{commit.message}\""
+          message += "\n#{commit_link}"
+        robot.messageRoom room, message
+
+
     console.log(data);
     res.end ""
