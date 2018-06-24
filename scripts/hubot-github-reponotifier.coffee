@@ -36,7 +36,7 @@ module.exports = (robot) ->
     commits = data.commits
     head_commit = data.head_commit
     repo = data.repository
-
+    repo_link = repo.html_url
     pusher = data.pusher
 
     if !data.deleted
