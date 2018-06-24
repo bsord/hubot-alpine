@@ -32,25 +32,23 @@ module.exports = (robot) ->
     data = JSON.parse(req.body.payload)
     room = query.room || process.env["HUBOT_GITHUB_EVENT_NOTIFIER_ROOM"]
     eventType = req.headers["x-github-event"]
-    console.log(eventType)
-    console.log(typeof(body))
-    robot.messageRoom room, (eventType).toString
-    #commits = data.commits
-    #head_commit = data.head_commit
-    #repo = data.repository
 
-    #pusher = data.pusher
+    commits = data.commits
+    head_commit = data.head_commit
+    repo = data.repository
 
-    #if 1 == 2
-      #if commits.length == 1
-        #commit_link = "<#{head_commit.url}|#{head_commit.message}>"
-        #robot.messageRoom room, "[#{repo_link}] New commit #{commit_link} by #{pusher.name}"
-      #else if commits.length > 1
-        #message = "[#{repo_link}] #{pusher.name} pushed #{commits.length} commits:"
-        #for commit in commits
-          #commit_link = "<#{commit.url}|#{commit.message}>"
-          #message += "\n#{commit_link}"
-        #robot.messageRoom room, message
+    pusher = data.pusher
+
+    if !== data.deleted
+      if commits.length == 1
+        commit_link = "<#{head_commit.url}|#{head_commit.message}>"
+        robot.messageRoom room, "[#{repo_link}] New commit #{commit_link} by #{pusher.name}"
+      else if commits.length > 1
+        message = "[#{repo_link}] #{pusher.name} pushed #{commits.length} commits:"
+        for commit in commits
+          commit_link = "<#{commit.url}|#{commit.message}>"
+          message += "\n#{commit_link}"
+        robot.messageRoom room, message
 
 
     console.log(data.ref)
