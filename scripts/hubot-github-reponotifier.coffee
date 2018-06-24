@@ -1,5 +1,5 @@
 # Description:
-#   Notifies about any available GitHub repo event via webhook
+#   Hubot slack notifications for github repo events.
 #
 # Configuration:
 #   (See: http://developer.github.com/webhooks/#events)
@@ -13,26 +13,9 @@
 #   3. Add the url: <HUBOT_URL>:<PORT>/hubot/gh-repo-events[?room=<room>]
 #    (Don't forget to urlencode the room name, especially for IRC. Hint: # = %23)
 #
-# Commands:
-#   None
-#
-# URLS:
+# WebHook URL:
 #   POST /hubot/gh-repo-events?room=<room>
-#
-# Notes:
-#   Currently tested with the following event types in HUBOT_GITHUB_EVENT_NOTIFIER_TYPES:
-#     - issue
-#     - page_build
-#     - pull_request
-#     - push
-#
-# Authors:
-#   spajus
-#   patcon
-#   parkr
-#   strugee
 
-inspect = (require('util')).inspect
 url = require('url')
 querystring = require('querystring')
 
