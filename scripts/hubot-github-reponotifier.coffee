@@ -32,7 +32,7 @@ module.exports = (robot) ->
     body = req.body
     room = query.room || process.env["HUBOT_GITHUB_EVENT_NOTIFIER_ROOM"]
     eventType = req.headers["x-github-event"]
-
+    console.log(eventType);
     robot.messageRoom room, (eventType).toString;
     data = body.payload.ref
     #commits = data.commits
