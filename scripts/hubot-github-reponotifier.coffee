@@ -29,7 +29,7 @@ formatUrl = (adapter, url, text) ->
 module.exports = (robot) ->
   robot.router.post "/hubot/gh-repo-events", (req, res) ->
     query = querystring.parse(url.parse(req.url).query)
-    data = JSON.parse(req.body)
+    data = JSON.parse(req.body.payload)
     room = query.room || process.env["HUBOT_GITHUB_EVENT_NOTIFIER_ROOM"]
     eventType = req.headers["x-github-event"]
     console.log(eventType)
@@ -53,5 +53,5 @@ module.exports = (robot) ->
         #robot.messageRoom room, message
 
 
-    console.log(data.payload.ref)
+    console.log(data.ref)
     res.end ""
