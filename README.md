@@ -1,6 +1,6 @@
 # Hubot-Alpine
 
-Putting hubot inside Docker.
+Putting hubot inside Docker
 
 ## Testing
 
