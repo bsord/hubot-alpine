@@ -29,5 +29,5 @@ ADD hubot/external-scripts.json /hubot/
 EXPOSE 80
 
 # And go
-# CMD ["/bin/sh", "-c", "bin/hubot --adapter slack"]
-CMD ["/bin/sh"]
+CMD ["/bin/sh", "-c", "bin/hubot --adapter slack"]
+#CMD ["/bin/sh"]
