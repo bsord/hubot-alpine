@@ -22,7 +22,7 @@ docker build -t alpine-hubot .
 To run the docker image
 
 ```
-docker run -e HUBOT_SLACK_TOKEN=$slack_token -d alpine-hubot
+docker run -e HUBOT_SLACK_TOKEN=$slack_token -d hubot-alpine
 ```
 
 To see your docker logs, run `docker ps` and grab the ID of your bot container then run `docker logs $ID`.
