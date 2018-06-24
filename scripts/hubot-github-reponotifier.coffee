@@ -38,7 +38,7 @@ module.exports = (robot) ->
     commits = data.commits
     head_commit = data.head_commit
     repo = data.repository
-    repo_link = formatUrl adapter, repo.html_url, repo.name
+
     pusher = data.pusher
 
     if !data.deleted
@@ -48,7 +48,7 @@ module.exports = (robot) ->
       else if commits.length > 1
         message = "[#{repo_link}] #{pusher.name} pushed #{commits.length} commits:"
         for commit in commits
-          commit_link = formatUrl adapter, commit.url, "\"#{commit.message}\""
+          commit_link = "<#{commit.url}|#{commit.message}>"
           message += "\n#{commit_link}"
         robot.messageRoom room, message
 
