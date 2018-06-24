@@ -39,7 +39,7 @@ module.exports = (robot) ->
 
     pusher = data.pusher
 
-    if data.deleted !== true
+    if !data.deleted
       if commits.length == 1
         commit_link = "<#{head_commit.url}|#{head_commit.message}>"
         robot.messageRoom room, "[#{repo_link}] New commit #{commit_link} by #{pusher.name}"
@@ -51,5 +51,5 @@ module.exports = (robot) ->
         robot.messageRoom room, message
 
 
-    console.log(data.ref)
+    console.log(data);
     res.end ""
