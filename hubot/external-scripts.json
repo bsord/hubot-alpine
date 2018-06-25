@@ -6,5 +6,6 @@
   "hubot-sonny",
   "hubot-uptime",
   "hubot-cron",
-  "hubot-cryptoalert"
+  "hubot-cryptoalert",
+  "hubot-dockerhub"
 ]
