@@ -26,6 +26,7 @@
     "hubot-slack": "^3.4.2",
     "cron": "latest",
     "hubot-dockerhub-integration": "latest",
-    "hubot-formatted-crypto": "latest"
+    "hubot-formatted-crypto": "latest",
+    "hubot-whois": "latest"
   }
 }
