@@ -1,6 +1,6 @@
 FROM alpine
 
- 
+
 
 MAINTAINER Brandon Sorgdrager <Brandon.Sorgdrager@gmail.com>
 
@@ -8,6 +8,7 @@ MAINTAINER Brandon Sorgdrager <Brandon.Sorgdrager@gmail.com>
 RUN apk update && apk upgrade \
   && apk add redis \
   && apk add nodejs \
+  && apk add npm \
   && npm install -g npm \
   && npm install -g yo generator-hubot \
   && npm install hubot-sonny \
