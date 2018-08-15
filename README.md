@@ -1,6 +1,6 @@
 # Hubot-Alpine
- 
- 
+
+
 
 
 
@@ -16,7 +16,11 @@ Pre-requisites:
 
 To build a docker image
 
+Simple:
 ```
-docker build -t hubot-alpine .
+docker run -d -e HUBOT_SLACK_TOKEN=YOURSLACKTOKENHERE --name CONTAINERNAME bsord/hubot-alpine
 ```
-ToDo
+With Extras/webook functionality:
+```
+docker run -d -p 8080:8080 -e HUBOT_SLACK_TOKEN=YOURSLACKTOKENHERE -e HUBOT_GITHUB_EVENT_NOTIFIER_TYPES=pull_request,page_build,push --name CONTAINERNAME bsord/hubot-alpine
+```
